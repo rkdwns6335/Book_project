@@ -8,6 +8,25 @@
 <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
+	<!-- 최상단 고정 메뉴 바  -->
+	<div id="topMenu">
+	    <div id="logo">
+	        <img alt="로고" src="./image/booboobooklogo-remove.jpeg" id="logo_image" onclick="location='http://localhost:8080/booboobook/'" style="width:60px; height:60px; cursor: pointer;">
+	    </div>
+	    <ul id="menu">
+	        <li><a href="#">Book</a></li>
+	        <li><a href="#">Q&A</a></li>
+	        <li><a href="#">My Page</a></li>
+	    </ul>
+	    <ul id="authMenu">
+	        <li><a href="#">로그인</a></li>
+	        <li><a href="#">회원가입</a></li>
+	    </ul>
+	    <div id="hamburgerMenu" onclick="toggleMenu()">
+	        &#9776;
+	    </div>
+	</div>
+
 	<section id="inc01">
 	   <div class="big_txt">
 	      <p class="b_txt">나의 생활과 인생에</p>
@@ -107,6 +126,44 @@
 	     </li>
    		</ul>
   	</div>
+  	<div class="marquee_title">
+  		<h2>Bestseller</h2>
+  	</div>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<section class="hero-section">
+	  <div class="card-grid">
+	    <a class="card" href="#">
+	      <div class="card__background" style="background-image: url(./image/book12.jpeg)"></div>
+	      <div class="card__content">
+	        <p class="card__category">한강</p>
+	        <h3 class="card__heading">채식주의자</h3>
+	      </div>
+	    </a>
+	    <a class="card" href="#">
+	      <div class="card__background" style="background-image: url(./image/book8.jpeg)"></div>
+	      <div class="card__content">
+	        <p class="card__category">무라카미 하루키</p>
+	        <h3 class="card__heading">도시와 그 불확실한 벽</h3>
+	      </div>
+	    </a>
+	    <a class="card" href="#">
+	      <div class="card__background" style="background-image: url(./image/book1.jpeg)"></div>
+	      <div class="card__content">
+	        <p class="card__category">정유정</p>
+	        <h3 class="card__heading">영원한 천국</h3>
+	      </div>
+	    </li>
+	    <a class="card" href="#">
+	      <div class="card__background" style="background-image: url(./image/book5.jpeg)"></div>
+	      <div class="card__content">
+	        <p class="card__category">한아야나리하라</p>
+	        <h3 class="card__heading">리틀 라이프</h3>
+	      </div>
+	    </a>
+	  <div>
+	</section>
+	
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery.marquee@1.6.0/jquery.marquee.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
@@ -158,6 +215,16 @@ textElements.forEach(text => {
 		},
 	});
 });
+
+
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    const authMenu = document.getElementById("authMenu");
+    menu.classList.toggle("active");
+    authMenu.classList.toggle("active");
+}
+
+
 
 </script>	
 </body>
