@@ -364,11 +364,62 @@ a{text-decoration:none}
 
 /* 기존 섹션과 내용이 메뉴바에 가리지 않도록 여백 추가 */
 body {
-    padding-top: 60px; /* 메뉴바 높이만큼 추가 */
+    padding-top: 60px; 
 }
 
 
 
+
+
+
+
+/* main audio part */
+#audiodrama{
+	background-color: #f7f7f7;
+}
+
+.audiodrama-section .section-wrap{
+	padding: 80px 0 120px;
+	max-width: 100%;
+	height: 850px;
+}
+
+.section-wrap{
+	margin: 0 auto;
+	max-width: 1440px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.audiodrama-section .section-wrap .text-wrap{
+	margin-bottom: 60px;
+}
+
+.text-wrap h2{
+	font-weight: 700;
+    font-size: 49px;
+    line-height: 130%;
+    letter-spacing: -.01em;
+    color: #242424;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.text-wrap p{
+	font-size: 22px;
+    line-height: 160%;
+    letter-spacing: -.6px;
+    color: #555;
+}
+
+.section-wrap .video-wrap .audiodrama-section{
+	max-width: 730px;
+    display: block;
+    margin: 0 auto;
+    -webkit-filter: drop-shadow(5px 5px 50px rgba(0, 0, 0, .03)) drop-shadow(12px 12px 32px rgba(0, 0, 0, .1));
+    filter: drop-shadow(5px 5px 50px rgba(0, 0, 0, .03)) drop-shadow(12px 12px 32px rgba(0, 0, 0, .1));
+    position: relative;
+}
 
 
 
@@ -378,7 +429,7 @@ body {
 @media (max-width: 768px) {
     #inc01 .big_txt {
     	position: relative;
-	    padding-left: 50px; /* 패딩 줄이기 */
+	    padding-left: 50px;
 	    font-size: 30px;
 	    font-weight: 700;
 	    line-height: 1.2;
@@ -401,6 +452,19 @@ body {
 	  width: 135px;
 	  margin-bottom: 20px;
 	  transition: transform 0.3s;
+	}
+	
+	.text-wrap h2{
+	    font-size: 40px;
+	    margin-bottom: 23px;
+	}
+	
+	.text-wrap p{
+		font-size: 20px;
+	}
+	
+	.audiodrama-section .section-wrap{
+		height: 810px;
 	}
 }
 
@@ -431,12 +495,25 @@ body {
 	  margin-bottom: 20px;
 	  transition: transform 0.3s;
 	}
+	
+	.text-wrap h2{
+	    font-size: 38px;
+	    margin-bottom: 22px;
+	}
+	
+	.text-wrap p{
+		font-size: 19px;
+	}
+	
+	.audiodrama-section .section-wrap{
+		height: 800px;
+	}
 }
 
 @media (max-width: 450px) {
     #inc01 .big_txt {
     	position: relative;
-	    padding-left: 25px; /* 패딩 줄이기 */
+	    padding-left: 25px;
 	    font-size: 20px;
 	    font-weight: 700;
 	    line-height: 1.2;
@@ -459,12 +536,25 @@ body {
 	  margin-bottom: 20px;
 	  transition: transform 0.3s;
 	}
+	
+	.text-wrap h2{
+	    font-size: 35px;
+	    margin-bottom: 22px;
+	}
+	
+	.text-wrap p{
+		font-size: 18px;
+	}
+	
+	.audiodrama-section .section-wrap{
+		height: 780px;
+	}
 }
 
 @media (max-width: 390px) {
     #inc01 .big_txt {
     	position: relative;
-	    padding-left: 20px; /* 패딩 줄이기 */
+	    padding-left: 20px;
 	    font-size: 17px;
 	    font-weight: 700;
 	    line-height: 1.2;
@@ -486,7 +576,7 @@ body {
 @media (max-width: 360px) {
     #inc01 .big_txt {
     	position: relative;
-	    padding-left: 14px; /* 패딩 줄이기 */
+	    padding-left: 14px;
 	    font-size: 14px;
 	    font-weight: 700;
 	    line-height: 1.2;
@@ -503,12 +593,24 @@ body {
 	  margin-bottom: 20px;
 	  transition: transform 0.3s;
 	}
+	.text-wrap h2{
+	    font-size: 28px;
+	    margin-bottom: 22px;
+	}
+	
+	.text-wrap p{
+		font-size: 15px;
+	}
+	
+	.audiodrama-section .section-wrap{
+		height: 700px;
+	}
 }
 
 @media (max-width: 315px) {
     #inc01 .big_txt {
     	position: relative;
-	    padding-left: 12px; /* 패딩 줄이기 */
+	    padding-left: 12px;
 	    font-size: 12px;
 	    font-weight: 700;
 	    line-height: 1.2;

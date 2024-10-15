@@ -163,6 +163,29 @@
 	    </a>
 	  <div>
 	</section>
+	<section id="audiodrama" class="audiodrama-section animation">
+		<div class="section-wrap">
+			<div class="text-wrap">
+				<h2>
+					나에게 휴식과 안정을
+					<br>
+					책임지는 오디오북
+				</h2>
+				<p>
+					생생한 오디오를 통해
+					<br>
+					책의 세계에 빠져보세요.
+				</p>
+			</div>
+			<div class="video-wrap">
+				<div class="video-poster">
+					<img data-v-003e81a0="" 
+					src="./image/audioImage.jpg" 
+					alt="나만의 공간을 아름답게 채워주는 오브제북">
+				</div>
+			</div>
+		</div>
+	</section>
 	
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery.marquee@1.6.0/jquery.marquee.min.js" type="text/javascript"></script>
