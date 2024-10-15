@@ -326,7 +326,7 @@ a{text-decoration:none}
 }
 
 /* 반응형 미디어 쿼리 */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     #menu {
         display: none; /* 작은 화면에서 메뉴 숨기기 */
         flex-direction: column;
