@@ -11,12 +11,13 @@
 	<!-- 최상단 고정 메뉴 바  -->
 	<div id="topMenu">
 	    <div id="logo">
-	        <img alt="로고" src="./image/booboobooklogo-remove.jpeg" id="logo_image" onclick="location='http://localhost:8080/booboobook/'" style="width:60px; height:60px; cursor: pointer;">
+	        <img alt="로고" src="./image/booboobooklogo-remove.jpeg" id="logo_image" onclick="location='/BooBooBookProject/'" style="width:60px; height:60px; cursor: pointer;">
 	    </div>
 	    <ul id="menu">
-	        <li><a href="#">Book</a></li>
+	        <li><a href="/BooBooBookProject/bookboard/bookList">Book</a></li>
 	        <li><a href="#">Q&A</a></li>
 	        <li><a href="#">My Page</a></li>
+	        <li><a href="/BooBooBookProject/bookboard/bookListForm">admin upload book</a></li>
 	    </ul>
 	    <ul id="authMenu">
 	        <li><a href="#">로그인</a></li>

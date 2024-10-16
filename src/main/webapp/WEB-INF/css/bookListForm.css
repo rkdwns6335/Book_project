@@ -1,0 +1,87 @@
+@charset "UTF-8";
+body{
+	background-color: #fcfffd;
+}
+
+.uploadForm{
+	background-color: #eff5e0;
+}
+
+table {
+    width: 400px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    overflow: hidden; /* 테두리가 둥글게 보이도록 설정 */
+}
+
+/* 테이블 헤더와 데이터 셀 스타일 */
+th, td {
+    padding: 15px; /* 패딩을 늘려서 여유 공간 추가 */
+    text-align: center;
+    border-bottom: 1px solid #ddd; /* 데이터 셀 아래에 경계선 추가 */
+}
+
+/* 헤더 스타일 */
+th {
+    background-color: #fefbdf; /* 헤더 배경색 변경 */
+    color: #717171; /* 글자 색상 변경 */
+    font-size: 1.1em; /* 헤더 글자 크기 조정 */
+}
+
+/* 데이터 입력란 스타일 */
+td input {
+    width: 90%; /* 입력란 넓이 조정 */
+    padding: 8px; /* 입력란 패딩 조정 */
+    border: 1px solid #ddd; /* 테두리 추가 */
+    border-radius: 5px; /* 입력란 둥글게 */
+    transition: border-color 0.3s; /* 경계선 변화 애니메이션 추가 */
+}
+
+/* 입력란 포커스 시 스타일 */
+td input:focus {
+    border-color: #4CAF50; /* 포커스 시 경계선 색상 변경 */
+    outline: none; /* 기본 포커스 아웃라인 제거 */
+}
+
+/* 제출 버튼 스타일 */
+.submit-btn {
+    width: 45%;
+    padding: 12px; /* 버튼 패딩 조정 */
+    background-color: #ffc398; /* 기본 배경색 */
+    color: #717171; /* 글자 색상 */
+    border: none; /* 테두리 제거 */
+    cursor: pointer; /* 포인터로 변경 */
+    border-radius: 20px; /* 둥근 버튼 */
+    font-size: 1em; /* 글자 크기 */
+    transition: background-color 0.3s, transform 0.2s; /* 애니메이션 추가 */
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex; /* 플렉스 박스를 사용하여 버튼을 나란히 배치 */
+    justify-content: space-between; /* 버튼 사이에 공간을 균등하게 배치 */
+}
+
+/* 제출 버튼 호버 및 클릭 효과 */
+.submit-btn:hover {
+    background-color: #2b3775; /* 호버 시 색상 변화 */
+    transform: translateY(-2px); /* 호버 시 살짝 위로 이동 */
+}
+
+.submit-btn:active {
+    transform: translateY(0); /* 클릭 시 원래 위치로 복귀 */
+}
+
+#showImageList{
+	color: #2e2e2e;
+}
+
+#logo_image{
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	width: 100px;
+	height: 100px;
+}

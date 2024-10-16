@@ -327,6 +327,11 @@ a{text-decoration:none}
 
 /* 반응형 미디어 쿼리 */
 @media (max-width: 1050px) {
+	#inc01 .big_txt {
+	    padding-left: 50px;
+	    font-size: 55px;
+    }
+	
     #menu {
         display: none; /* 작은 화면에서 메뉴 숨기기 */
         flex-direction: column;
@@ -334,8 +339,9 @@ a{text-decoration:none}
         background-color: #f8f9fa;
         padding: 10px 0;
         position: absolute;
-        top: 50px;
+        top: 115px;
         left: 0;
+        padding: 40px 0;
     }
 
     #menu.active, #authMenu.active {
@@ -349,8 +355,46 @@ a{text-decoration:none}
     }
 
     #hamburgerMenu {
-        display: block; /* 작은 화면에서 햄버거 메뉴 표시 */
+        display: block;
+        font-size: 85px;
     }
+    
+    #menu li a, #authMenu li a{
+		font-size: 28px;
+		padding: 20px;	
+	}
+	
+	ul > li {
+	  margin: 35px 20px;
+	}
+	
+	#logo img{
+		width: 120px;
+		height: 120px;
+	}
+	
+	.marquee_title h2 {
+	  font-size: 45px;
+	  color: #303131;
+	  margin-top: 7%;
+	  text-align: center;
+	  margin-bottom: 6%;
+	}
+	ul > li.big > a > img {
+    	width: 260px;
+	}
+	ul > li.small > a > img {
+    	width: 195px;
+	}
+	
+	.text-wrap h2{
+	    font-size: 60px;
+	    margin-bottom: 27px;
+	}
+	
+	.text-wrap p{
+		font-size: 33px;
+	}
 }
 
 /* 아이콘 스타일 */

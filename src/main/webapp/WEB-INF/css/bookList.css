@@ -1,0 +1,213 @@
+@charset "UTF-8";
+
+#book_div{
+	padding: 100px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.book_list{
+	list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.book_list li{
+	width: calc(25% - 20px);
+    margin: 0 auto;
+}
+
+.book_main_content{
+	background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.book_main_content:hover{
+	transform: scale(1.05);
+}
+
+.book_image img{
+	width: 100%;
+    height: 570px;
+    object-fit: cover;
+    border-bottom: 2px solid #9b736c;
+}
+
+.book_mini{
+	text-align: right;
+	margin-right: 8px;
+	margin-bottom: 5px;
+}
+
+.book_mini img{
+	margin-right: 4px;
+	width: 17px;
+	height: 17px;
+}
+
+.book_mini span{
+	margin-bottom: 10px;
+	text-decoration: none;
+	color: #4d4d4d;
+}
+
+.book_content_a{
+	text-decoration: none;
+}
+
+.book_subject{
+	padding: 15px;
+    text-align: center;
+}
+
+.book_subject p{
+	font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    overflow: hidden;           
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+}
+
+
+
+
+
+/* 페이징 버튼 처리 */
+.paging{
+	display: inline-block; 
+	margin: 0 5px; 
+	padding: 8px 16px;
+	text-decoration: none; 
+	background-color: #f0f0f0;
+	color: #333; 
+	border: 1px solid #ccc; 
+	border-radius: 4px;
+}
+
+.paging:hover{
+	display: inline-block; 
+	margin: 0 5px; 
+	padding: 8px 16px;
+	text-decoration: underline; 
+	background-color: #333;
+	color: #fff; 
+	border: 1px solid #ccc; 
+	border-radius: 4px;
+}
+
+.currentpaging{
+	display: inline-block; 
+	margin: 0 5px; 
+	padding: 8px 16px;
+	background-color: #333;
+	color: #fff; 
+	border: 1px solid #ccc; 
+	border-radius: 4px;
+}
+
+
+
+
+
+@media(max-width: 1665px){
+	.book_image img{
+	 	height: 500px;
+	}	
+}
+@media(max-width: 1550px){
+	.book_image img{
+	 	height: 435px;
+	}	
+}
+@media(max-width: 1400px){
+	.book_image img{
+	 	height: 390px;
+	}	
+}
+@media(max-width: 1300px){
+	.book_image img{
+	 	height: 340px;
+	}	
+}
+@media(max-width: 1200px){
+	.book_image img{
+	 	height: 300px;
+	}	
+}
+@media(max-width: 1100px){
+	.book_image img{
+	 	height: 270px;
+	}	
+}
+@media(max-width: 1015px){
+	.book_image img{
+	 	height: 550px;
+	}	
+	.book_subject p{
+		font-size: 32px; 
+	}
+	.book_mini img{
+		width: 40px;
+		height: 40px;
+	}
+	.book_mini span{
+		font-size: 35px;
+	}
+	#book_div{
+		padding: 70px;
+	}
+	.book_list li{
+		width: calc(50% - 20px);
+	    margin: 0 auto;
+	}
+	.book_subject{
+		padding: 40px;
+	}
+	.book_list{
+		gap: 26px;
+	    margin: 30px auto;
+	}
+	.currentpaging{
+		padding: 24px 34px;
+		border-radius: 10px;
+	}
+	a{
+		font-size: 40px;
+	}
+	
+}
+@media(max-width: 950px){
+	.book_image img{
+	 	height: 220px;
+	}
+	#book_div{
+		padding: 85px;
+	}	
+}
+@media(max-width: 900px){
+	.book_image img{
+	 	height: 210px;
+	}
+	#book_div{
+		padding: 77px;
+	}	
+}
+@media(max-width: 850px){
+	.book_image img{
+	 	height: 200px;
+	}
+	#book_div{
+		padding: 70px;
+	}	
+}
