@@ -1,0 +1,151 @@
+@font-face {
+    font-family: 'LINESeedKR-Bd'; /* 폰트 이름 */
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2'); /* 폰트 파일 경로 */
+    font-weight: 700; /* 폰트 두께 */
+    font-style: normal; /* 폰트 스타일 */
+}
+
+body {
+    font-family: 'LINESeedKR-Bd', sans-serif; /* 기본 폰트로 설정 */
+    background-color: #f5f5f5; /* Soft background color */
+    color: #333; /* Default text color */
+    margin: 0;
+    padding: 150px;
+}
+
+#qnaListDiv {
+    background-color: #ffffff; /* Card background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 20px;
+}
+
+h2 {
+    color: #D4B6A5; /* Muted yellowish-brown color for title */
+    font-size: 50px;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+#qnaList {
+    width: 100%;
+    border-collapse: collapse; /* Merge table borders */
+}
+
+th {
+    background-color: #D4B6A5; /* Header background color */
+    color: #ffffff; /* Header text color */
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #E2E2E2; /* Bottom border */
+}
+
+.accordion {
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s; /* Add animation for background color change */
+}
+
+.accordion:hover {
+    background-color: #e7e1d8; /* Hover background color */
+}
+
+.panel {
+    display: none; /* Hide panels by default */
+    padding: 15px;
+    background-color: #f9f9f9; /* Panel background color */
+    border: 1px solid #e0e0e0; /* Panel border */
+    border-radius: 5px; /* Panel rounded corners */
+    margin-top: 10px; /* Margin between panel and original content */
+}
+
+.align-center {
+    text-align: center; /* Center alignment */
+    margin: 20px 0; /* Add margin (adjust as needed) */
+    font-family: 'LINESeedKR-Bd', sans-serif; /* 폰트 적용 */
+}
+
+button {
+    background-color: #ebd4c7; /* Button background color */
+    color: #333; /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Add padding */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s; /* Add animation for background color change */
+    font-family: 'LINESeedKR-Bd', sans-serif; /* 폰트 적용 */
+}
+
+
+button:hover {
+    background-color: #d4b6a5; /* Darker shade for hover effect */
+}
+
+textarea {
+    border: 1px solid #ccc; /* Textarea border */
+    border-radius: 5px; /* Rounded corners */
+    width: 100%; /* 100% width */
+    padding: 10px; /* Add padding */
+    resize: none; /* Disable resizing */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow */
+}
+
+textarea:focus {
+    border-color: #ebd4c7; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Pagination styles */
+/* Pagination container */
+.paging-container {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* Individual pagination links */
+.paging {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 5px;
+    background-color: #e7e1d8; /* Muted yellowish-brown for pagination */
+    color: #333; /* Text color */
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Current page link */
+.currentPaging {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 5px;
+    background-color: #D4B6A5; /* Darker shade for current page */
+    color: white;
+    border-radius: 5px;
+}
+
+/* Hover effects for pagination links */
+.paging:hover {
+    background-color: #ebd4c7; /* Lightened shade for hover */
+}
+
+/* Disable pointer events on the no content span */
+.noContent {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 5px;
+    color: #666; /* Gray for no content message */
+    pointer-events: none; /* Disable pointer events */
+}
+
+/* Style for the previous and next buttons */
+.paging.prev,
+.paging.next {
+    font-weight: bold;
+}

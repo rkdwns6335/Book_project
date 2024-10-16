@@ -11,6 +11,8 @@
 	
 	<context:component-scan base-package="book.bean"/>
 	<context:component-scan base-package="book.service.impl"/>
+	<context:component-scan base-package="admin.service.impl" />
+    <context:component-scan base-package="admin.bean" />
 	
 	<context:component-scan base-package="spring.conf"/>
 

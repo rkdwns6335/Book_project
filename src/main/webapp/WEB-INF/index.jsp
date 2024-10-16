@@ -15,7 +15,7 @@
 	    </div>
 	    <ul id="menu">
 	        <li><a href="/BooBooBookProject/bookboard/bookList">Book</a></li>
-	        <li><a href="#">Q&A</a></li>
+	        <li><a href="/BooBooBookProject/qna/qnaList">Q&A</a></li>
 	        <li><a href="#">My Page</a></li>
 	        <li><a href="/BooBooBookProject/bookboard/bookListForm">admin upload book</a></li>
 	    </ul>
