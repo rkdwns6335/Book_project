@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import admin.bean.QnaDTO;
 import admin.service.AdminService;
+import user.bean.UserDTO;
 
 @Controller
 @RequestMapping(value="/qna")
@@ -32,22 +33,30 @@ public class AdminController {
 		model.addAttribute("noCheck", map.get("noCheck"));
 		model.addAttribute("pagingHTML", map.get("pagingHTML"));
 		
-		// 세션에서 사용자 ID 가져오기
-		//String userId = (String) session.getAttribute("userID");
-		String userId = "aaa";
-		model.addAttribute("userId", userId);
+		// 세션에서 사용자 정보 가져오기
+	    UserDTO sessionUser = (UserDTO) session.getAttribute("loginUser");
+	    String userId = (sessionUser != null) ? sessionUser.getId() : null; // userId가 null일 경우 처리를 추가
+	    
+	    model.addAttribute("userId", userId);
 		
         return "/qna/qnaList"; 
     }
 	
 	//qna 문의 글 등록
 	@RequestMapping(value="/qnaWriteForm" , method=RequestMethod.GET)
-    public String qnaWriteForm(@RequestParam(required = false, defaultValue="1") String pg) {
-        return "/qna/qnaWriteForm"; 
+    public String qnaWriteForm(@RequestParam(required = false, defaultValue="1") String pg , Model model, HttpSession session) {
+		UserDTO sessionUser = (UserDTO) session.getAttribute("loginUser");
+	    String userId = (sessionUser != null) ? sessionUser.getId() : null; // userId가 null일 경우 처리를 추가
+
+	    model.addAttribute("userId", userId);
+	    
+	    return "/qna/qnaWriteForm";
     }
 	
 	@RequestMapping(value = "/qnaWrite", method = RequestMethod.POST)
+	@ResponseBody
     public void qnaWrite(@ModelAttribute QnaDTO qnaDTO) {
+		System.out.println("qnaCheck: " + qnaDTO.getQnaCheck());
     	adminService.qnaWrite(qnaDTO);
     }
 	

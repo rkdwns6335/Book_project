@@ -1,6 +1,3 @@
-네, 원본 버전에 기능 완료 코드의 내용을 통합하겠습니다. 다음은 통합된 index.jsp 코드입니다:
-
-```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

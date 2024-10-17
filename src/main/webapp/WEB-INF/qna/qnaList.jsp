@@ -7,10 +7,12 @@
 <head>
     <meta charset="UTF-8">
     <title>QnA List</title>
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
     <link rel="stylesheet" type="text/css" href="../css/qna/qnaList.css">
 </head>
 <body>
-    <div id="qnaListDiv">
+	<%@ include file="../main/header.jsp" %>
+	<div id="qnaListDiv">
         <div align="center">
             <h2>QnA</h2>
         </div>
@@ -18,11 +20,11 @@
         <table id="qnaList">
             <thead>
                 <tr>
-                    <th width="50">번호</th>
-                    <th width="300">내용</th>
-                    <th width="100">작성자</th>
-                    <th width="100">작성일</th>
-                    <th width="100">답글 여부</th>
+                    <th width="50" style="text-align:center;">번호</th>
+                    <th width="300" style="text-align:center;">내용</th>
+                    <th width="100" style="text-align:center;">작성자</th>
+                    <th width="100" style="text-align:center;">작성일</th>
+                    <th width="100" style="text-align:center;">답글 여부</th>
                 </tr>
             </thead>
             <input type="text" id="pg" value="${map.pg}" style="display:none;">
@@ -97,27 +99,42 @@
         </div>
         
         <div class="align-center">
-            <button type="button" onclick="location.href='/BooBooBookProject/qna/qnaWriteForm'">문의글 작성</button>
+        	<c:if test="${userId != null}">
+            	<button type="button" onclick="location.href='/BooBooBookProject/qna/qnaWriteForm'">문의글 작성</button>
+            </c:if>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $(".accordion").click(function() {
-                $(this).next(".panel").slideToggle(); // 패널을 슬라이드 토글
-                $(this).find(".toggle-plus").attr("src", $(this).next(".panel").is(":visible") ? "../image/qna_minus.png" : "../image/qna_plus.png"); // 버튼 이미지 변경
+    $(document).ready(function() {
+        $(".panel").hide(); // 패널을 기본적으로 숨김
+
+        $(".accordion").click(function() {
+            var panel = $(this).next(".panel");
+            var img = $(this).find(".toggle-plus");
+
+            // 패널 슬라이드 토글
+            panel.slideToggle(function() {
+                // 슬라이드 애니메이션이 완료된 후에 이미지 소스를 변경
+                if (panel.is(":visible")) {
+                    img.attr("src", "../image/qna_minus.png"); // 패널이 열리면 minus로 변경
+                } else {
+                    img.attr("src", "../image/qna_plus.png"); // 패널이 닫히면 plus로 변경
+                }
             });
         });
+    });
 
         function submitReply(seq) {
             var replyContent = $("#replyContent_" + seq).val();
             if (replyContent.trim() === "") {
+            	
                 alert("답글을 입력해주세요.");
                 return;
             }
             $.ajax({
                 type: "POST",
-                url: "/qna/qnaReplyWrite",
+                url: "/BooBooBookProject/qna/qnaReplyWrite",
                 data: {
                     seq: seq,
                     replyContent: replyContent
