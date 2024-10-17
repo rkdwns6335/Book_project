@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user.dao.UserDAO">
+    <insert id="register" parameterType="user.bean.UserDTO">
+        INSERT INTO studydb.user(id, name, email, pwd)
+        VALUES (#{id}, #{name}, #{email}, #{pwd})
+    </insert>
+    
+    <select id="login" parameterType="String" resultType="user.bean.UserDTO">
+        SELECT * FROM studydb.user WHERE id=#{id}
+    </select>
+    
+    <select id="isIdExists" parameterType="String" resultType="boolean">
+        SELECT COUNT(*) > 0 FROM studydb.user WHERE id=#{id}
+    </select>
+    
+    <select id="isEmailExists" parameterType="String" resultType="boolean">
+        SELECT COUNT(*) > 0 FROM studydb.user WHERE email=#{email}
+    </select>
+</mapper>

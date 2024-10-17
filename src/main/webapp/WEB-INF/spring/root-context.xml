@@ -13,7 +13,27 @@
 	<context:component-scan base-package="book.service.impl"/>
 	<context:component-scan base-package="admin.service.impl" />
     <context:component-scan base-package="admin.bean" />
+    <context:component-scan base-package="user.service"/>
 	
 	<context:component-scan base-package="spring.conf"/>
+	
+		<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	    <property name="host" value="smtp.naver.com"/>
+	    <property name="port" value="465"/>
+	    <property name="username" value="gustlr887@naver.com"/>
+	    <property name="password" value="---"/>
+	    <property name="defaultEncoding" value="UTF-8"/>
+	    <property name="javaMailProperties">
+	        <props>
+	            <prop key="mail.smtp.auth">true</prop>
+	            <prop key="mail.smtp.starttls.enable">true</prop>
+	            <prop key="mail.smtp.ssl.enable">true</prop>
+	            <prop key="mail.smtp.ssl.trust">smtp.naver.com</prop>
+	            <prop key="mail.debug">true</prop>
+	        </props>
+	    </property>
+	</bean>
+	
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
 </beans>
