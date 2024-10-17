@@ -18,4 +18,63 @@
 	    values (#{imageFileName}, #{imageOriginalFileName}, #{subject}, #{author}, #{content})
 	</insert>
 	
+	<!-- book get DTO View-->
+	<select id="getBookDTO" parameterType="String" resultType="book.bean.BookDTO">
+		select * from bookUpload where seq=#{seq}
+	</select>
+	
+	<!-- review -->
+	
+	<!-- review write -->
+	<insert id="reviewform" parameterType="book.bean.ReviewDTO">
+		insert into bookReview (id, grade, reviewcontent, ref) values (#{id}, #{grade}, #{reviewcontent}, #{ref})
+	</insert>
+	
+	<!-- review list 불러오기 -->
+	<select id="getReviewList" resultType="book.bean.ReviewDTO">
+		select * from bookReview where ref=#{seq}
+	</select>
+	
+	<!-- book rating get -->
+	<select id="getPresentRating" parameterType="int" resultType="float">
+		select ROUND(AVG(grade), 1)
+	    from bookReview
+	    where ref = #{nowSeq}
+	</select>
+	
+	<!-- update rating -->
+	<update id="updateRating" parameterType="java.util.Map" >
+		update bookUpload set rating=#{nowRating} where seq=#{nowSeq}
+	</update>
+	
+	<!-- update reply -->
+	<update id="updateReply" parameterType="int" >
+		update bookUpload set reply=reply+1 where seq=#{nowSeq}
+	</update>
+	
+	<!-- update Like -->
+	<update id="updateLike" parameterType="int" >
+		update bookUpload set `like`=`like`+1 where seq=#{like_seq}
+	</update>
+	
+	<!-- book 삭제 -->
+	<delete id="bookDelete" parameterType="int">
+		delete from bookUpload where seq=#{seq}
+	</delete>
+	
+	<!-- book get ImageFileName -->
+	<select id="getImageFileName" parameterType="int" resultType="String">
+		select imageFileName from bookUpload where seq=#{seq}
+	</select>
+	
+	<!-- book update (NCP)-->
+	<update id="updateBook" parameterType="book.bean.BookDTO">
+		update bookUpload set imageFileName=#{imageFileName},
+			 				  imageOriginalFileName=#{imageOriginalFileName},
+			 				  subject=#{subject},
+			 				  author=#{author},
+			 				  content=#{content}
+		where seq=#{seq}
+	</update>
+	
 </mapper>

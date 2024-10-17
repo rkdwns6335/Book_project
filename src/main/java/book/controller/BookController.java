@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import book.bean.BookDTO;
+import book.bean.ReviewDTO;
 import book.service.BookService;
 import book.service.ObjectStorageService;
 
@@ -101,6 +102,64 @@ public class BookController {
 			bookService.bookWrite(dto);
         }
 		
+	}
+	
+	@RequestMapping(value="/bookboard/bookView")
+	public String bookView(@RequestParam String seq, Model model) {
+		BookDTO bookDTO = bookService.getBookDTO(seq);
+		
+		Map<String, Object> map2 = bookService.getReviewList(seq);
+		
+		model.addAttribute("bookDTO",bookDTO);
+		model.addAttribute("seq",seq);
+		model.addAttribute("reviewList",map2.get("reviewList"));
+		
+		return "/bookboard/bookView";
+	}
+	
+	@RequestMapping(value="/bookboard/reviewform", method=RequestMethod.POST)
+	public String reviewform(@ModelAttribute ReviewDTO reviewDTO) {
+		int nowSeq = reviewDTO.getRef();
+		
+		bookService.reviewform(reviewDTO);
+		
+		float nowRating = bookService.getPresentRating(nowSeq); //넣어준 리뷰댓글의 평점을 계산하고 와줌
+		
+		bookService.updateRating(nowRating, nowSeq); //평점값을 계산해서 bookupload 테이블 업데이트 해줌
+		
+		bookService.updateReply(nowSeq);
+		
+		return "redirect:/bookboard/bookView?seq="+reviewDTO.getRef();
+	}
+	
+	@RequestMapping(value="/bookboard/reviewLike", method=RequestMethod.GET)
+	public String reviewLike(@RequestParam int like_seq) {
+		bookService.updateLike(like_seq);
+		
+		return "redirect:/bookboard/bookView?seq="+like_seq;
+	}
+	
+	@RequestMapping(value="/bookboard/bookDelete", method=RequestMethod.GET)
+	public String bookDelete(@RequestParam int seq) {
+		bookService.bookDelete(seq);
+		
+		return "redirect:/bookboard/bookList";
+	}
+	
+	@RequestMapping(value="/bookboard/bookUpdateform")
+	public String bookUpdateform(@RequestParam String seq, Model model){
+		BookDTO bookDTO = bookService.getBookDTO(seq);
+		model.addAttribute("seq",seq);
+		model.addAttribute("bookDTO",bookDTO);
+		
+		return "/bookboard/bookUpdateform";
+	}
+	
+	@RequestMapping(value="/bookboard/updateBook")
+	public String updateBook(@ModelAttribute BookDTO bookDTO,
+					      @RequestParam("img[]") MultipartFile img){
+		bookService.updateBook(bookDTO, img);
+		return "redirect:/bookboard/bookList";
 	}
 	
 }

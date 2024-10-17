@@ -29,8 +29,8 @@
 			                    <p>${ data.subject }</p>
 			                </div>
 			                <div class="book_mini">
+			                    <img alt="rating" src="../image/rating.png"/><span id="rating_num">${ data.rating }</span>
 			                    <img alt="like" src="../image/like.png"/><span id="like_num">${ data.like }</span>
-			                    <img alt="eye" src="../image/eye.png"/><span id="view_num">${ data.view }</span>
 			                    <img alt="reply" src="../image/reply.png"/><span id="reply_num">${ data.reply }</span>
 			                </div>
 						</a>
