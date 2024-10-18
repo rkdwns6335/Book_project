@@ -13,7 +13,6 @@
         <form method="post" id="write_form">
                 <div align="center">
                     <h2>문의글 등록</h2>
-                    <input type="text" value="${sessionScope.loginUser }">
                 </div>
                 <div id="post_input">
                 	<div class="custom-form-group2">
