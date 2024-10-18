@@ -230,6 +230,22 @@
 		    <artifactId>spring-security-core</artifactId>
 		    <version>5.6.1</version>    
 		</dependency>
+		
+		<!-- Spring Security OAuth2 Client 의존성 추가 -->
+		<dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-oauth2-client</artifactId>
+	        <version>2.7.5</version> <!-- 사용 중인 Spring Boot 버전에 맞춰 조정 -->
+	    </dependency>
+		
+		 <!-- json 파싱 -->
+	    <dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20210307</version> <!-- 필요에 따라 버전 변경 가능 -->
+		</dependency>
+		
+		
 	</dependencies>
     <build>
         <plugins>
