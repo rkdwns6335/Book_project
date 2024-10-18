@@ -45,21 +45,21 @@
             <form id="searchForm" action="/BooBooBookProject/bookboard/bookList" method="GET">
             	<input type="hidden" name="pg" value="${map2.pg}"> <!-- 페이지 번호 유지 -->
             	
-				<select name="searchType" id="searchType" style="height: 40px; padding: 7px 14px; border: 1px solid #ccc; border-radius: 4px; ">
+				<select name="searchType" id="searchType">
 					<option value="title" ${param.searchType == 'title' ? 'selected' : ''}>제목</option>
 					<option value="content" ${param.searchType == 'content' ? 'selected' : ''}>저자</option>
 					<option value="both" ${param.searchType == 'both' ? 'selected' : ''}>제목 + 저자</option>
 				</select>
                 
-	            <input id="search" type="search" name="searchTerm" placeholder="검색어를 입력해주세요." value="${param.searchTerm}" style="height: 40px; width: 300px; padding: 7px; border: 1px solid #ccc; border-radius: 4px;">
+	            <input id="search" type="search" name="searchTerm" placeholder="검색어를 입력해주세요." value="${param.searchTerm}">
 
                 
-                <button type="submit" class="foodreview_search_submit" style="height: 40px; padding: 0 20px; background-color: #555; color: white; border: none; cursor: pointer; border-radius: 4px;">
+                <button type="submit" class="foodreview_search_submit" >
 					검색
 				</button>
                 
-                <div id="order" style="display: inline-block; margin-left: 10px;">
-					<select name="sortType" id="sortType" onchange="this.form.submit();" style="height: 40px; padding: 7px 14px; border: 1px solid #ccc; border-radius: 4px;">
+                <div id="order">
+					<select name="sortType" id="sortType" onchange="this.form.submit();">
 						<option value="seq" ${param.sortType == 'seq' ? 'selected' : ''}>최신순</option>
 						<option value="like" ${param.sortType == 'like' ? 'selected' : ''}>좋아요순</option>
 						<option value="rating" ${param.sortType == 'rating' ? 'selected' : ''}>별점순</option>

@@ -117,7 +117,42 @@
 }
 
 
+#searchType{
+	height: 40px; 
+	padding: 7px 14px; 
+	border: 1px solid #ccc; 
+	border-radius: 4px;
+}
 
+.foodreview_search_submit{
+	height: 40px; 
+	padding: 0 20px; 
+	background-color: #555; 
+	color: white; 
+	border: none; 
+	cursor: pointer; 
+	border-radius: 4px;
+}
+
+#search{
+	height: 40px; 
+	width: 300px; 
+	padding: 7px; 
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+#sortType{
+	height: 40px; 
+	padding: 7px 14px; 
+	border: 1px solid #ccc; 
+	border-radius: 4px;
+}
+
+#order{
+	display: inline-block; 
+	margin-left: 10px;
+}
 
 
 @media(max-width: 1665px){
@@ -160,32 +195,55 @@
 	.book_mini img{
 		width: 40px;
 		height: 40px;
+		margin-bottom: 8px;
 	}
 	.book_mini span{
-		font-size: 35px;
+		font-size: 38px;
 	}
 	#book_div{
 		padding: 70px;
 	}
 	.book_list li{
 		width: calc(50% - 20px);
-	    margin: 0 auto;
+	    margin: 12px auto;
 	}
 	.book_subject{
 		padding: 40px;
 	}
 	.book_list{
 		gap: 26px;
-	    margin: 30px auto;
+	    margin: 70px auto;
 	}
 	.currentpaging{
-		padding: 24px 34px;
+		padding: 15px 34px;
 		border-radius: 10px;
 	}
 	a{
 		font-size: 40px;
 	}
-	
+	#search {
+		height: 80px;
+		width: 360px;
+		font-size: 31px;
+	}
+	.foodreview_search_submit{
+		height: 78px;
+    	padding: 0 40px;
+    	font-size: 35px;
+	}
+	#sortType  {
+		height: 70px;
+		padding: 11px 14px;
+		font-size: 35px;
+	}
+	#searchType {	
+		height: 77px;
+    	padding: 14px 0px;
+    	font-size: 27px;
+	}
+	#searchForm{
+		
+	}
 }
 @media(max-width: 950px){
 	.book_image img{
