@@ -2,16 +2,27 @@ package kakao.controller;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import book.service.ObjectStorageService;
+import kakao.service.KakaoService;
 import lombok.RequiredArgsConstructor;
 import spring.conf.KakaoConfiguration;
 
 @RequiredArgsConstructor
 @Controller
 public class KakaoLoginController {
+
+	@Autowired
+	private KakaoService kakaoService;
+	
+	@Autowired
+	private ObjectStorageService objectStorageService;
+	
+	private String bucketName = "bitcamp-9th-bucket-141";
 	
     private final KakaoConfiguration kakaoConfiguration;
     
@@ -32,6 +43,6 @@ public class KakaoLoginController {
         System.out.println("nickname = " + nickname);
         System.out.println("accessToken = " + accessToken);
 
-        return "redirect:/BooBooBookProject";
+        return "redirect:/BooBooBookProject/";
     }
 }

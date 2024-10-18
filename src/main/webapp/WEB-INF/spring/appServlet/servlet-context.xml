@@ -22,7 +22,7 @@
 		<beans:property name="maxUploadSize" value="5000000"/> <!-- 5MB -->
 	</beans:bean>
 	
-	<context:component-scan base-package="book.controller, com.controller.BooBooBookProject, admin.controller, user.controller," />
+	<context:component-scan base-package="book.controller, com.controller.booboobook, admin.controller, user.controller, kakao.controller" />
 	
 	<resources location="/WEB-INF/css/" mapping="/css/**"/> <!-- 경로를 지정해줌 -->
 	<resources location="/WEB-INF/js/" mapping="/js/**"></resources>
