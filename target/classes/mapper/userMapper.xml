@@ -16,6 +16,10 @@
         SELECT COUNT(*) > 0 FROM studydb.user WHERE id=#{id}
     </select>
     
+    <select id="isIdExists2" parameterType="String" resultType="int">
+	    SELECT COUNT(*) FROM studydb.user WHERE id=#{id}
+	</select>
+    
     <select id="isEmailExists" parameterType="String" resultType="boolean">
         SELECT COUNT(*) > 0 FROM studydb.user WHERE email=#{email}
     </select>

@@ -9,4 +9,5 @@ public interface UserDAO {
     UserDTO login(String id);
     boolean isIdExists(String id);
     boolean isEmailExists(String email);
+	int isIdExists2(String id);
 }
