@@ -57,7 +57,7 @@
                             <input type="password" class="form-control" id="loginPwd" required>
                         </div>
                         <button type="submit" class="btn btn-primary">로그인</button>
-                        <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a4cffd956d87c2cbecaec9f85fafbb44&redirect_uri=http://223.130.130.143:8090/BooBooBookProject/oauth2/code/kakao">
+                        <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a4cffd956d87c2cbecaec9f85fafbb44&redirect_uri=http://223.130.130.143:8090/BooBooBookProject/oauth2/code/kakao&prompt=select_account">
                         	<img alt="kakao-image" src="./image/kakao_login_medium.png">
                         </a>
                     </form>
