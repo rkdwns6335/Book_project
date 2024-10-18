@@ -13,7 +13,7 @@ import book.bean.ReviewDTO;
 @Mapper
 public interface BookDAO {
 
-	public List<BookDTO> getBookList(Map<String, Integer> map);
+	public List<BookDTO> getBookList(Map<String, Object> map);
 
 	public int getTotalA();
 

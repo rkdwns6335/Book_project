@@ -152,5 +152,8 @@
             location.href = '../qna/qnaList?pg=' + pg;
         }
     </script>
+    <script>
+    console.log("Session User: ${sessionScope.loginUser}");
+</script>
 </body>
 </html>

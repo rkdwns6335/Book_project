@@ -5,16 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../css/header.css">
 <link rel="stylesheet" type="text/css" href="../css/qna/qnaWrite.css">
 </head>
 <body>
-<%@ include file="../main/header.jsp" %>
-<div id="post_content_div">
+		<div id="post_content_div">
         <br/>
         <form method="post" id="write_form">
                 <div align="center">
                     <h2>문의글 등록</h2>
+                    <input type="text" value="${sessionScope.loginUser }">
                 </div>
                 <div id="post_input">
                 	<div class="custom-form-group2">

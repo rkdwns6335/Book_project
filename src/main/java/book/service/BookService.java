@@ -9,7 +9,7 @@ import book.bean.ReviewDTO;
 
 public interface BookService {
 
-	public Map<String, Object> getBookList(String pg);
+	public Map<String, Object> getBookList(String pg, String searchType, String searchTerm, String sortType);
 
 	public void bookWrite(BookDTO dto);
 

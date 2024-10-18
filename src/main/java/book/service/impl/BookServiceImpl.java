@@ -37,13 +37,19 @@ public class BookServiceImpl implements BookService{
 	private String bucketName = "bitcamp-9th-bucket-141";
 
 	@Override
-	public Map<String, Object> getBookList(String pg) {
+	public Map<String, Object> getBookList(String pg, String searchType, String searchTerm, String sortType) {
+		//pg가 null 이면 기본값 1 설정
+		//int currentPage = (pg == null || pg.isEmpty()) ? 1 : Integer.parseInt(pg);
+		
 		int endNum = 16;
 		int startNum = (Integer.parseInt(pg)-1) * 16;
 		
-		Map<String, Integer> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<>();
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
+		map.put("searchType", searchType);
+		map.put("searchTerm", searchTerm);
+		map.put("sortType", sortType);
 		
 		//DB
 		List<BookDTO> getBookList = bookDAO.getBookList(map);

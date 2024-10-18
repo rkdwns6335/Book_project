@@ -12,7 +12,7 @@
 </head>
 <body>
 	<!-- 상단 탑 메뉴바 -->
-	<jsp:include page="../main/header.jsp" />
+	<%@ include file="../main/header.jsp" %>
 	
 	<!-- content -->
 	<div id="book_div">
@@ -41,6 +41,32 @@
 		<div style='text-align: center; margin: 20px 0;'>
 	    	<div>${ map2.bookListPaging.pagingHTML } </div>
 	    </div>
+	    <div id="search_sort_div" style="margin-bottom: 20px;">
+            <form id="searchForm" action="/BooBooBookProject/bookboard/bookList" method="GET">
+            	<input type="hidden" name="pg" value="${map2.pg}"> <!-- 페이지 번호 유지 -->
+            	
+				<select name="searchType" id="searchType" style="height: 40px; padding: 7px 14px; border: 1px solid #ccc; border-radius: 4px; ">
+					<option value="title" ${param.searchType == 'title' ? 'selected' : ''}>제목</option>
+					<option value="content" ${param.searchType == 'content' ? 'selected' : ''}>저자</option>
+					<option value="both" ${param.searchType == 'both' ? 'selected' : ''}>제목 + 저자</option>
+				</select>
+                
+	            <input id="search" type="search" name="searchTerm" placeholder="검색어를 입력해주세요." value="${param.searchTerm}" style="height: 40px; width: 300px; padding: 7px; border: 1px solid #ccc; border-radius: 4px;">
+
+                
+                <button type="submit" class="foodreview_search_submit" style="height: 40px; padding: 0 20px; background-color: #555; color: white; border: none; cursor: pointer; border-radius: 4px;">
+					검색
+				</button>
+                
+                <div id="order" style="display: inline-block; margin-left: 10px;">
+					<select name="sortType" id="sortType" onchange="this.form.submit();" style="height: 40px; padding: 7px 14px; border: 1px solid #ccc; border-radius: 4px;">
+						<option value="seq" ${param.sortType == 'seq' ? 'selected' : ''}>최신순</option>
+						<option value="like" ${param.sortType == 'like' ? 'selected' : ''}>좋아요순</option>
+						<option value="rating" ${param.sortType == 'rating' ? 'selected' : ''}>별점순</option>
+					</select>
+				</div>
+            </form>
+        </div>
 	</div>
 	
 

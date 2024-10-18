@@ -11,7 +11,7 @@
 </head>
 <body>
 	<!-- 상단 탑 메뉴바 -->
-	<jsp:include page="../main/header.jsp" />
+	<%@ include file="../main/header.jsp" %>
 	
 	<!-- content -->
 	<div id="bookView_div">
@@ -25,18 +25,20 @@
 				<div class="top_subject">
 					<h2 class="book_name">${bookDTO.subject}</h2>
 					<!-- 세션 값 받아오면 이 부분 admin만 볼수있도록 할 것 -->
-					<div id="delete_zone">
-						<form action="/BooBooBookProject/bookboard/bookDelete" id="delete_go">
-		            		<input type="hidden" name="seq" value="${ seq }">
-					  		<button class="btn-delete" id="delete_button">삭제</button>
-					  	</form>
-					</div>
-					<div id="delete_zone">
-						<form action="/BooBooBookProject/bookboard/bookUpdateform" id="update_go">
-		            		<input type="hidden" name="seq" value="${ seq }">
-					  		<button class="btn-update" id="update_button">수정</button>
-					  	</form>
-					</div>
+					<c:if test="${userId == 'admin'}">
+						<div id="delete_zone">
+							<form action="/BooBooBookProject/bookboard/bookDelete" id="delete_go">
+			            		<input type="hidden" name="seq" value="${ seq }">
+						  		<button class="btn-delete" id="delete_button">삭제</button>
+						  	</form>
+						</div>
+						<div id="delete_zone">
+							<form action="/BooBooBookProject/bookboard/bookUpdateform" id="update_go">
+			            		<input type="hidden" name="seq" value="${ seq }">
+						  		<button class="btn-update" id="update_button">수정</button>
+						  	</form>
+						</div>
+					</c:if>
 					<!-- 여기까지 -->
 				</div>
 				<span class="top_author">

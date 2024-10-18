@@ -23,6 +23,7 @@ import book.bean.BookDTO;
 import book.bean.ReviewDTO;
 import book.service.BookService;
 import book.service.ObjectStorageService;
+import user.bean.UserDTO;
 
 @Controller
 public class BookController {
@@ -40,10 +41,14 @@ public class BookController {
 	}
 	
 	@RequestMapping(value="/bookboard/bookList", method=RequestMethod.GET)
-	public String bookList(@RequestParam(required = false, defaultValue="1") String pg, Model model) {
-		Map<String, Object> map2 = bookService.getBookList(pg);
+	public String bookList(@RequestParam(required = false, defaultValue="1") String pg, Model model, 
+						   String searchType, String searchTerm, String sortType) {
+		Map<String, Object> map2 = bookService.getBookList(pg, searchType , searchTerm , sortType);
 		
 		map2.put("pg", pg);
+		map2.put("searchType", searchType);
+		map2.put("searchTerm", searchTerm);
+		map2.put("sortType", sortType);
 		
 		model.addAttribute("map2",map2);
 		
@@ -105,10 +110,16 @@ public class BookController {
 	}
 	
 	@RequestMapping(value="/bookboard/bookView")
-	public String bookView(@RequestParam String seq, Model model) {
+	public String bookView(@RequestParam String seq, Model model , HttpSession session) {
 		BookDTO bookDTO = bookService.getBookDTO(seq);
 		
 		Map<String, Object> map2 = bookService.getReviewList(seq);
+		
+		UserDTO sessionUser = (UserDTO) session.getAttribute("loginUser");
+	    String userId = (sessionUser != null) ? sessionUser.getId() : null;
+	    System.out.println("userId : "+ userId);
+	    
+	    model.addAttribute("userId", userId);
 		
 		model.addAttribute("bookDTO",bookDTO);
 		model.addAttribute("seq",seq);
