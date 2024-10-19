@@ -186,8 +186,8 @@
 	}	
 }
 @media(max-width: 1015px){
-	img{
-		vertical-align: baseline;
+	img {
+	    vertical-align: baseline !important; /* 강제로 baseline으로 설정 */
 	}
 	
 	.book_image img{

@@ -327,8 +327,8 @@ a{text-decoration:none}
 
 /* 반응형 미디어 쿼리 */
 @media (max-width: 1050px) {
-	img{
-		vertical-align: baseline;
+	img {
+	    vertical-align: baseline !important; /* 강제로 baseline으로 설정 */
 	}
 	
 	#inc01 .big_txt {
