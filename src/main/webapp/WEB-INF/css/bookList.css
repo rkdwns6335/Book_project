@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+img, svg{
+    vertical-align: baseline !important; /* 강제로 baseline으로 설정 */
+}
+img{
+    vertical-align: baseline !important; /* 강제로 baseline으로 설정 */
+}
+
 #book_div{
 	padding: 100px;
     justify-content: center;

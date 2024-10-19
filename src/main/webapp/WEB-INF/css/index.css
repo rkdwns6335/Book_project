@@ -6,6 +6,13 @@
     font-style: normal;
 }
 
+img, svg{
+    vertical-align: baseline !important; /* 강제로 baseline으로 설정 */
+}
+img{
+    vertical-align: baseline !important; /* 강제로 baseline으로 설정 */
+}
+
 * {
   margin: 0;
   padding: 0;
