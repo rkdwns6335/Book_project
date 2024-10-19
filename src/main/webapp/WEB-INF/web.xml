@@ -47,13 +47,13 @@
 	</servlet-mapping>
 
 	<!-- 세션 관리 설정 -->
-	<session-config>
+	<!-- <session-config>
 		<session-timeout>30</session-timeout>
 		<cookie-config>
 			<http-only>true</http-only>
 			<secure>true</secure>
 		</cookie-config>
 		<tracking-mode>COOKIE</tracking-mode>
-	</session-config>
+	</session-config> -->
 	
 </web-app>
