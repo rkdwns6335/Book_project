@@ -186,6 +186,10 @@
 	}	
 }
 @media(max-width: 1015px){
+	img{
+		vertical-align: baseline;
+	}
+	
 	.book_image img{
 	 	height: 550px;
 	 	width: auto;
@@ -244,7 +248,7 @@
 	}
 	#searchForm{
 		height: auto;
-		width: 100%;
+		width: 105%;
 	}
 }
 @media(max-width: 950px){

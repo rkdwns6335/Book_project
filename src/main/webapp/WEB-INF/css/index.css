@@ -327,6 +327,10 @@ a{text-decoration:none}
 
 /* 반응형 미디어 쿼리 */
 @media (max-width: 1050px) {
+	img{
+		vertical-align: baseline;
+	}
+	
 	#inc01 .big_txt {
 	    padding-left: 50px;
 	    font-size: 48px;
