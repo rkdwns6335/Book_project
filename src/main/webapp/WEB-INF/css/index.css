@@ -329,7 +329,7 @@ a{text-decoration:none}
 @media (max-width: 1050px) {
 	#inc01 .big_txt {
 	    padding-left: 50px;
-	    font-size: 55px;
+	    font-size: 48px;
     }
 	
     #menu {
@@ -382,9 +382,11 @@ a{text-decoration:none}
 	}
 	ul > li.big > a > img {
     	width: 260px;
+    	height: auto;
 	}
 	ul > li.small > a > img {
     	width: 195px;
+    	height: auto;
 	}
 	
 	.text-wrap h2{
@@ -394,6 +396,11 @@ a{text-decoration:none}
 	
 	.text-wrap p{
 		font-size: 33px;
+	}
+	
+	#kakao-image{
+		width: 155px;
+		height: auto;
 	}
 }
 

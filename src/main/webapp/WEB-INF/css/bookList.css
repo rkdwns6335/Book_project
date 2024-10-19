@@ -188,6 +188,7 @@
 @media(max-width: 1015px){
 	.book_image img{
 	 	height: 550px;
+	 	width: auto;
 	}	
 	.book_subject p{
 		font-size: 32px; 
@@ -242,7 +243,8 @@
     	font-size: 27px;
 	}
 	#searchForm{
-		
+		height: auto;
+		width: 100%;
 	}
 }
 @media(max-width: 950px){
