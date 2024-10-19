@@ -45,8 +45,8 @@
                     </div>
                     <div class="card">
                         <h2>나의 독서 활동</h2>
-                        <p>작성한 리뷰: ${writtenReviews}개</p>
-                        <p>참여한 Q&A: ${participatedQnA }개</p>
+                        <p>작성한 리뷰: ${reviewCnt}개</p>
+                        <p>참여한 Q&A: ${qnaCnt }개</p>
                         <button class="view-btn">자세히 보기</button>
                     </div>
                     <div class="card">

@@ -38,5 +38,7 @@ public interface BookDAO {
 	public String getImageFileName(int seq);
 
 	public void updateBook(BookDTO bookDTO);
+
+	public int reviewCnt(String id);
 	
 }

@@ -119,5 +119,9 @@
 			 				  content=#{content}
 		where seq=#{seq}
 	</update>
-	
+	<select id="reviewCnt" parameterType="String" resultType="int">
+        SELECT COUNT(*)
+        FROM bookreview
+        WHERE id = #{userId}
+    </select>
 </mapper>

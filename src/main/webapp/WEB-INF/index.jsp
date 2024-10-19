@@ -20,7 +20,9 @@
 	        <li><a href="/BooBooBookProject/bookboard/bookList">Book</a></li>
 	        <li><a href="/BooBooBookProject/qna/qnaList">Q&A</a></li>
 	        <li><a href="/BooBooBookProject/mypage/myPage">My Page</a></li>
-	        <li><a href="/BooBooBookProject/bookboard/bookListForm">admin upload book</a></li>
+	        <c:if test="${sessionScope.userId eq 'admin'}">
+			    <li><a href="/BooBooBookProject/bookboard/bookListForm">admin upload book</a></li>
+			</c:if>
 	    </ul>
 	    <ul id="authMenu">
 	    	<c:choose>
@@ -29,6 +31,7 @@
 			        <li><a href="#" id="registerBtn">회원가입</a></li>
 		        </c:when>
 	        	<c:otherwise>
+	        		<li><span>${sessionScope.loginUser.name}님</span></li>
 	        		<li><a href="#" id="logoutBtn">로그아웃</a></li>
         		</c:otherwise>
        		</c:choose>

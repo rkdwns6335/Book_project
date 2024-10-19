@@ -31,6 +31,8 @@ public interface BookService {
 
 	public void updateBook(BookDTO bookDTO, MultipartFile img);
 
+	public int reviewCnt(String userId);
+
 	
 
 }

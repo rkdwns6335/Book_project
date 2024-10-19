@@ -12,4 +12,5 @@ public interface AdminService {
 
 	public void qnaReplyWrite(int seq, String replyContent); // QnA 문의글 답글 ( 관리자 )
 
+	public int qnaCnt(String id);
 }

@@ -21,4 +21,5 @@ public interface AdminDAO {
 
 	public void qnaReplyWrite(@Param("seq") int seq, @Param("replyContent") String replyContent); // 문의글 답글 ( 관리자 )
 
+	public int qnaCnt(String id);
 }

@@ -177,6 +177,11 @@ public class BookServiceImpl implements BookService{
 		
 		bookDAO.updateBook(bookDTO);
 	}
+
+	@Override
+	public int reviewCnt(String userId) {
+		return bookDAO.reviewCnt(userId);
+	}
 	
 	
 }

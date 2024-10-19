@@ -66,6 +66,7 @@ public class UserController {
         UserDTO userDTO = userService.login(id, pwd);
         if (userDTO != null) {
             // 로그인 성공 시 세션에 사용자 정보 저장
+        	session.setAttribute("userId", userDTO.getId());
             session.setAttribute("loginUser", userDTO);
             return "success";
         }

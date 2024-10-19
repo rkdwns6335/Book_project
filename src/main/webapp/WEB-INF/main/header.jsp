@@ -20,7 +20,9 @@
 	        <li><a href="/BooBooBookProject/bookboard/bookList">Book</a></li>
 	        <li><a href="/BooBooBookProject/qna/qnaList">Q&A</a></li>
 	        <li><a href="${pageContext.request.contextPath}/mypage/myPage">My Page</a></li>
-	        <li><a href="/BooBooBookProject/bookboard/bookListForm">admin upload book</a></li>
+	        <c:if test="${sessionScope.userId eq 'admin'}">
+			    <li><a href="/BooBooBookProject/bookboard/bookListForm">admin upload book</a></li>
+			</c:if>
 	    </ul>
 	    <ul id="authMenu">
 		    <c:choose>

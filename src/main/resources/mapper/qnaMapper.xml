@@ -31,4 +31,10 @@
         SET qnaAdminContent = #{replyContent}
         WHERE seq = #{seq}
     </update>
+    
+    <select id="qnaCnt" parameterType="String" resultType="int">
+        SELECT COUNT(*)
+        FROM bbookqna
+        WHERE qnaid = #{userId}
+    </select>
  </mapper>

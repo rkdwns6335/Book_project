@@ -72,5 +72,10 @@ public class AdminServiceImpl implements AdminService {
 		System.out.println("service > replyContent " + replyContent);
 		adminDAO.qnaReplyWrite(seq, replyContent);
 	}
+	
+	@Override
+	public int qnaCnt(String id) {
+		return adminDAO.qnaCnt(id);
+	}
 
 }
