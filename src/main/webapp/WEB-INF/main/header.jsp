@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 	    <ul id="menu">
 	        <li><a href="/BooBooBookProject/bookboard/bookList">Book</a></li>
 	        <li><a href="/BooBooBookProject/qna/qnaList">Q&A</a></li>
-	        <li><a href="#">My Page</a></li>
+	        <li><a href="${pageContext.request.contextPath}/mypage/myPage">My Page</a></li>
 	        <li><a href="/BooBooBookProject/bookboard/bookListForm">admin upload book</a></li>
 	    </ul>
 	    <ul id="authMenu">
@@ -28,8 +29,9 @@
 		            <li><a href="#" id="registerBtn">회원가입</a></li>
 		        </c:when>
 		        <c:otherwise>
-		            <li><a href="#" id="logoutBtn">로그아웃</a></li>
-		        </c:otherwise>
+	                <li><span>${sessionScope.loginUser.name}님</span></li>
+	                <li><a href="#" id="logoutBtn">로그아웃</a></li>
+            	</c:otherwise>
 		    </c:choose>
 		</ul>
 	    <div id="hamburgerMenu" onclick="toggleMenu()">
@@ -62,48 +64,53 @@
         </div>
     </div>
 
-    <!-- 회원가입 모달 -->
-    <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">회원가입</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="registerForm">
-                        <div class="mb-3">
-                            <label for="registerId" class="form-label">아이디</label>
-                            <input type="text" class="form-control" id="registerId" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="registerName" class="form-label">이름</label>
-                            <input type="text" class="form-control" id="registerName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="registerEmail" class="form-label">이메일</label>
-                            <div class="input-group">
-                                <input type="email" class="form-control" id="registerEmail" required>
-                                <button type="button" class="btn btn-primary" id="sendVerificationBtn">인증번호 전송</button>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="verificationCode" class="form-label">인증번호</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="verificationCode" required>
-                                <button type="button" class="btn btn-primary" id="verifyCodeBtn">인증확인</button>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="registerPwd" class="form-label">비밀번호</label>
-                            <input type="password" class="form-control" id="registerPwd" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="registerSubmitBtn" disabled>회원가입</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+	<!-- 회원가입 모달은 마이페이지에서는 제외 -->
+    <c:if test="${pageContext.request.servletPath != '/WEB-INF/mypage/myPage.jsp'}">
+    	<div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+		    <!-- 회원가입 모달 -->
+		    <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+		        <div class="modal-dialog">
+		            <div class="modal-content">
+		                <div class="modal-header">
+		                    <h5 class="modal-title">회원가입</h5>
+		                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		                </div>
+		                <div class="modal-body">
+		                    <form id="registerForm">
+		                        <div class="mb-3">
+		                            <label for="registerId" class="form-label">아이디</label>
+		                            <input type="text" class="form-control" id="registerId" required>
+		                        </div>
+		                        <div class="mb-3">
+		                            <label for="registerName" class="form-label">이름</label>
+		                            <input type="text" class="form-control" id="registerName" required>
+		                        </div>
+		                        <div class="mb-3">
+		                            <label for="registerEmail" class="form-label">이메일</label>
+		                            <div class="input-group">
+		                                <input type="email" class="form-control" id="registerEmail" required>
+		                                <button type="button" class="btn btn-primary" id="sendVerificationBtn">인증번호 전송</button>
+		                            </div>
+		                        </div>
+		                        <div class="mb-3">
+		                            <label for="verificationCode" class="form-label">인증번호</label>
+		                            <div class="input-group">
+		                                <input type="text" class="form-control" id="verificationCode" required>
+		                                <button type="button" class="btn btn-primary" id="verifyCodeBtn">인증확인</button>
+		                            </div>
+		                        </div>
+		                        <div class="mb-3">
+		                            <label for="registerPwd" class="form-label">비밀번호</label>
+		                            <input type="password" class="form-control" id="registerPwd" required>
+		                        </div>
+		                        <button type="submit" class="btn btn-primary" id="registerSubmitBtn" disabled>회원가입</button>
+		                    </form>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+	    </div>
+    </c:if>   
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

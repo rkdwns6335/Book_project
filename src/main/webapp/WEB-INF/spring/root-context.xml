@@ -16,6 +16,7 @@
     <context:component-scan base-package="user.service"/>
     <context:component-scan base-package="kakao.service"/>
     <context:component-scan base-package="kakao.service.impl"/>
+    <context:component-scan base-package="user.controller"/>
 	
 	<context:component-scan base-package="spring.conf"/>
 	
@@ -23,7 +24,7 @@
 	    <property name="host" value="smtp.naver.com"/>
 	    <property name="port" value="465"/>
 	    <property name="username" value="gustlr887@naver.com"/>
-	    <property name="password" value="---"/>
+	    <property name="password" value="------"/>
 	    <property name="defaultEncoding" value="UTF-8"/>
 	    <property name="javaMailProperties">
 	        <props>

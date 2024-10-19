@@ -110,5 +110,48 @@ public class UserServiceImpl implements UserService {
         }
         logger.warn("Login failed for user: {}", id);
         return null;
-    }    
+    }
+
+    @Override
+    public boolean isIdExists(String id) {
+        return userDAO.isIdExists(id);
+    }
+    
+    @Override
+    public void updateName(UserDTO user) throws Exception {
+        userDAO.updateName(user);
+    }
+
+    @Override
+    public void updatePassword(String userId, String newPassword) throws Exception {
+        logger.info("비밀번호 변경 시도: {}", userId);
+        String encodedPassword = passwordEncoder.encode(newPassword);
+        int result = userDAO.updatePassword(userId, encodedPassword);
+        if (result > 0) {
+            logger.info("비밀번호 변경 완료: {}", userId);
+        } else {
+            logger.warn("비밀번호 변경 실패: {}", userId);
+            throw new Exception("비밀번호 변경에 실패했습니다.");
+        }
+    }
+
+
+    @Override
+    public boolean verifyPassword(String userId, String password) throws Exception {
+        String storedPassword = userDAO.getPassword(userId);
+        return passwordEncoder.matches(password, storedPassword);
+    }
+
+    @Override
+    public void deleteUser(String userId) throws Exception {
+        userDAO.deleteUser(userId);
+    }
+
+    @Override
+    public boolean isSocialPassword(String userId) {
+        String storedPassword = userDAO.getPassword(userId);
+        return passwordEncoder.matches("@1234567890", storedPassword);
+	}
+
+	
 }

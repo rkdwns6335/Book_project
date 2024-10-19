@@ -23,4 +23,20 @@
     <select id="isEmailExists" parameterType="String" resultType="boolean">
         SELECT COUNT(*) > 0 FROM studydb.user WHERE email=#{email}
     </select>
+    
+    <update id="updateName" parameterType="user.bean.UserDTO">
+        UPDATE studydb.user SET name = #{name} WHERE id = #{id}
+    </update>
+    
+    <update id="updatePassword">
+	    UPDATE studydb.user SET pwd = #{encodedPassword} WHERE id = #{userId}
+	</update>
+    
+    <select id="getPassword" resultType="String">
+        SELECT pwd FROM studydb.user WHERE id = #{userId}
+    </select>
+    
+    <delete id="deleteUser" parameterType="string">
+        DELETE FROM studydb.user WHERE id = #{userId}
+    </delete>
 </mapper>

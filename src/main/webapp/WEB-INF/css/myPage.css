@@ -1,0 +1,126 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #fffdf7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.mypage-background {
+    background-image: url('/BooBooBookProject/image/fall.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 120px 20px 20px;
+}
+
+.mypage-title {
+    text-align: center;
+    color: #5d4037;
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    display: block; 
+    position: relative; 
+    z-index: 1;
+    padding-top: 20px;
+}
+
+.mypage-container {
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    border-radius: 15px;
+    padding: 40px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    color: #795548;
+    font-size: 2em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #efebe9;
+    padding-bottom: 10px;
+}
+
+.card p, .card li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #555;
+    text-align: left;
+}
+
+.card ul {
+    padding-left: 20px;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 30px;
+    display: block;
+}
+
+button {
+    background-color: #8d6e63;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #6d4c41;
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+    }
+    
+    .card {
+        width: 100%;
+    }
+    
+    .mypage-title {
+        font-size: 2.2em;
+    }
+
+    .mypage-background {
+        padding-top: 100px;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+}

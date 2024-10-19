@@ -19,7 +19,7 @@
 	    <ul id="menu">
 	        <li><a href="/BooBooBookProject/bookboard/bookList">Book</a></li>
 	        <li><a href="/BooBooBookProject/qna/qnaList">Q&A</a></li>
-	        <li><a href="#">My Page</a></li>
+	        <li><a href="/BooBooBookProject/mypage/myPage">My Page</a></li>
 	        <li><a href="/BooBooBookProject/bookboard/bookListForm">admin upload book</a></li>
 	    </ul>
 	    <ul id="authMenu">
@@ -77,9 +77,10 @@
 	            <div class="modal-body">
 	                <form id="registerForm">
 	                    <div class="mb-3">
-	                        <label for="registerId" class="form-label">아이디</label>
-	                        <input type="text" class="form-control" id="registerId" required>
-	                    </div>
+						    <label for="registerId" class="form-label">아이디</label>
+						    <input type="text" class="form-control" id="registerId" required>
+						    <small id="idFeedback" class="form-text"></small>
+						</div>
 	                    <div class="mb-3">
 	                        <label for="registerName" class="form-label">이름</label>
 	                        <input type="text" class="form-control" id="registerName" required>
@@ -336,9 +337,13 @@ $(document).ready(function() {
         $('#registerModal').modal('show');
     });
 
-    // 회원가입 폼 제출
+ 	// 회원가입 폼 제출 시 유효성 검사
     $('#registerForm').submit(function(e) {
         e.preventDefault();
+        if ($('#idFeedback').text() !== '사용 가능한 아이디입니다.') {
+            alert('유효한 아이디를 입력해주세요.');
+            return;
+        }
         $.ajax({
             url: '${pageContext.request.contextPath}/user/register',
             type: 'POST',
@@ -359,6 +364,29 @@ $(document).ready(function() {
             }
         });
     });
+    
+    // 회유ㅓㄴ가입 모달에서 아이디 유효성 검사하기!
+    $('#registerId').on('blur', function() {
+        var id = $(this).val();
+        if (id) {
+            $.ajax({
+                url: '${pageContext.request.contextPath}/user/checkId',
+                type: 'POST',
+                data: { id: id },
+                success: function(response) {
+                    if (response === 'available') {
+                        $('#idFeedback').text('사용 가능한 아이디입니다.').css('color', 'green');
+                    } else {
+                        $('#idFeedback').text('이미 사용 중인 아이디입니다.').css('color', 'red');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('아이디 중복 체크 중 오류 발생:', error);
+                }
+            });
+        }
+    });
+
  	
     // 인증번호 전송
     $('#sendVerificationBtn').click(function() {
@@ -441,6 +469,21 @@ $(document).ready(function() {
             }
         });
     });
+    
+    $(document).ready(function() {
+        // My Page 링크 클릭 이벤트 처리
+        $('#myPageLink').click(function(e) {
+            e.preventDefault();
+            var loginUser = '${sessionScope.loginUser}';
+            if (loginUser) {
+                window.location.href = '${pageContext.request.contextPath}/mypage';
+                 
+            } else {
+                $('#loginModal').modal('show');
+            }
+        });
+    });
+
 });
 </script>
 </body>

@@ -1,13 +1,18 @@
 package user.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import user.bean.UserDTO;
@@ -69,7 +74,91 @@ public class UserController {
     
     @PostMapping("/logout")
     public String logout(HttpSession session) {
-        session.removeAttribute("loginUser");
+        session.invalidate();
         return "success";
     }
+    
+    @PostMapping("/checkId")
+    public ResponseEntity<String> checkId(@RequestParam String id) {
+        boolean isExist = userService.isIdExists(id);
+        if (isExist) {
+            return ResponseEntity.ok("duplicate");
+        } else {
+            return ResponseEntity.ok("available");
+        }
+    }
+    
+    @PostMapping("/updateName")
+    @ResponseBody
+    public String updateName(@RequestBody UserDTO user, HttpSession session) {
+        try {
+            userService.updateName(user);
+            UserDTO sessionUser = (UserDTO) session.getAttribute("loginUser");
+            sessionUser.setName(user.getName());
+            session.setAttribute("loginUser", sessionUser);
+            return "success";
+        } catch (Exception e) {
+            return "error";
+        }
+    }
+    
+    @PostMapping("/verifyCurrentPassword")
+    @ResponseBody
+    public String verifyCurrentPassword(@RequestBody Map<String, String> passwordData, HttpSession session) {
+        try {
+            UserDTO sessionUser = (UserDTO) session.getAttribute("loginUser");
+            String currentPassword = passwordData.get("currentPassword");
+            
+            if (userService.verifyPassword(sessionUser.getId(), currentPassword)) {
+                logger.info("현재 비밀번호 확인 성공: {}", sessionUser.getId());
+                return "success";
+            } else {
+                logger.warn("잘못된 현재 비밀번호: {}", sessionUser.getId());
+                return "wrongPassword";
+            }
+        } catch (Exception e) {
+            logger.error("현재 비밀번호 확인 중 오류 발생", e);
+            return "error";
+        }
+    }
+    
+    @PostMapping("/updatePassword")
+    @ResponseBody
+    public String updatePassword(@RequestBody Map<String, String> passwordData, HttpSession session) {
+        try {
+            logger.info("비밀번호 변경 요청 받음: {}", passwordData);
+            UserDTO sessionUser = (UserDTO) session.getAttribute("loginUser");
+            String currentPassword = passwordData.get("currentPassword");
+            String newPassword = passwordData.get("newPassword");
+            
+            if (userService.verifyPassword(sessionUser.getId(), currentPassword)) {
+                userService.updatePassword(sessionUser.getId(), newPassword);
+                logger.info("비밀번호 변경 성공: {}", sessionUser.getId());
+                return "success";
+            } else {
+                logger.warn("잘못된 현재 비밀번호: {}", sessionUser.getId());
+                return "wrongPassword";
+            }
+        } catch (Exception e) {
+            logger.error("비밀번호 변경 중 오류 발생", e);
+            return "error";
+        }
+    }
+    
+    @PostMapping("/delete")
+    public String deleteUser(HttpSession session) {
+        try {
+            UserDTO sessionUser = (UserDTO) session.getAttribute("loginUser");
+            if (sessionUser != null) {
+                userService.deleteUser(sessionUser.getId());
+                session.invalidate();
+                return "success";
+            } else {
+                return "error";
+            }
+        } catch (Exception e) {
+            return "error";
+        }
+    }
+
 }
