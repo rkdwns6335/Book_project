@@ -78,7 +78,7 @@
 			<span id="review_title">리뷰</span>
              <form action="/BooBooBookProject/bookboard/reviewform" method="post" id="review_form">
                  <input type="hidden" name="ref" value="${seq}">
-                 <input type="hidden" id="id" name="id" value="test">
+                 <input type="hidden" id="id" name="id" value="${ userId }">
                  <input type="hidden" id="grade" name="grade" value="">
                  <textarea id="reviewcontent" name="reviewcontent" placeholder="리뷰를 입력하세요"></textarea>
                  <div class="star-group">
@@ -104,6 +104,20 @@
 				<li>
 					<div class="review-author">
                        <img src="../image/reply.png">&nbsp;${review.id}&nbsp;&nbsp;&nbsp;
+                       <c:if test="${userId == review.id}">
+                       		<form id="review_delete_form" action="/BooBooBookProject/bookboard/reviewdelete">
+                       			<input type="hidden" name="seq" value="${ seq }">
+	                       		<input type="hidden" name="review_seq" value="${review.seq}">
+	                       		<button type="button" id="review_delete_button" class="review_delete_button">삭제</button>
+                       		</form>
+                       </c:if>
+                       <div class="star-rating" data-grade="${review.grade}">
+						    <span class="star">&#9733;</span>
+						    <span class="star">&#9733;</span>
+						    <span class="star">&#9733;</span>
+						    <span class="star">&#9733;</span>
+						    <span class="star">&#9733;</span>
+						</div>
                        <form id="report_form" action="/BooBooBookProject/bookboard/reviewWrite">
 	                    	<input type="hidden" class="review_id" name="review_id" value="${review.id}">
 	                    	<input type="hidden" name="seq" value="${ seq }">
@@ -141,12 +155,24 @@
 
 $(function(){
 	$('#review_button').click(function(){
-		if($('#id').val()!=="" && $('#reviewcontent').val()!=="" && $('#grade').val()!==""){
-			$('#review_form').submit();
-		}else{
-			alert("리뷰 내용을 입력해주세요!");
+		if($('#id').val()!==""){
+			if($('#reviewcontent').val()!=="" && $('#grade').val()!==""){
+				$('#review_form').submit();
+			}else{
+				alert("리뷰 내용을 입력해주세요!");
+			}
+		}
+		else{
+			alert("로그인 먼저 해주세요~");
 		}
 	});
+	
+	$('#review_delete_button').click(function(){
+		if(confirm("정말 리뷰를 삭제하시겠습니까?")){
+			$('#review_delete_form').submit();
+		}
+	});
+	
 });
 
 $('.star-rating-input input').change(function() {

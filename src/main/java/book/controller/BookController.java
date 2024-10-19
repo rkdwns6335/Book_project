@@ -173,4 +173,13 @@ public class BookController {
 		return "redirect:/bookboard/bookList";
 	}
 	
+	@RequestMapping(value="/bookboard/reviewdelete", method=RequestMethod.GET)
+	public String reviewdelete(@RequestParam("review_seq") int review_seq, @RequestParam("seq") int seq) {
+		bookService.reviewdelete(review_seq);
+		float nowRating = bookService.getPresentRating(seq);//넣어준 리뷰댓글의 평점을 다시 계
+		bookService.updateRating(nowRating, seq);//평점값을 bookupload 테이블 업데이트
+		bookService.updateReplydown(seq);//리뷰 개수 -1
+		return "redirect:/bookboard/bookView?seq="+seq;
+	}
+	
 }

@@ -182,6 +182,16 @@ public class BookServiceImpl implements BookService{
 	public int reviewCnt(String userId) {
 		return bookDAO.reviewCnt(userId);
 	}
+
+	@Override
+	public void reviewdelete(int review_seq) {
+		bookDAO.reviewdelete(review_seq);
+	}
+
+	@Override
+	public void updateReplydown(int seq) {
+		bookDAO.updateReplydown(seq);
+	}
 	
 	
 }

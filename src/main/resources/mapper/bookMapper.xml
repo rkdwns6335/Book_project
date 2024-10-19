@@ -124,4 +124,15 @@
         FROM bookreview
         WHERE id = #{userId}
     </select>
+    
+    <!-- book review delete -->
+    <delete id="reviewdelete" parameterType="int">
+		delete from bookReview where seq=#{review_seq}
+	</delete>
+	
+	<!-- update reply down-->
+	<update id="updateReplydown" parameterType="int" >
+		update bookUpload set reply=reply-1 where seq=#{seq}
+	</update>
+	
 </mapper>

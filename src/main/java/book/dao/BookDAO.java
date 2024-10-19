@@ -40,5 +40,9 @@ public interface BookDAO {
 	public void updateBook(BookDTO bookDTO);
 
 	public int reviewCnt(String id);
+
+	public void reviewdelete(int review_seq);
+
+	public void updateReplydown(int seq);
 	
 }

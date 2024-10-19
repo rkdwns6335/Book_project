@@ -33,6 +33,10 @@ public interface BookService {
 
 	public int reviewCnt(String userId);
 
+	public void reviewdelete(int review_seq);
+
+	public void updateReplydown(int seq);
+
 	
 
 }
