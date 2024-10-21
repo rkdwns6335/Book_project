@@ -5,7 +5,7 @@
 개발인원 : 3인 (조강민(팀장), 김효진, 윤강준)
 
 ### <개발 기술 스택>
-  1. Server : tomcat 9.0, Jenkins, NCP(Naver Cloud Platform)
+  1. Server : tomcat 9.0, Jenkins, NCP(Naver Cloud Platform), MyBatis, Docker
   2. front-end : HTML5, CSS3, JavaScript, Spring, JSP, JQuery, BootStrap
   3. back-end : Spring, JSP, JavaScript, JQuery, Java, MVC
   4. CI/CD : Jenkins, NCP, gitHub
